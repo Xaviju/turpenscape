@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, send_file
-from io import StringIO
+from io import BytesIO
 from palette_gen import generate_palette
 
 app = Flask(__name__)
@@ -28,8 +28,8 @@ def upload_file():
             template = render_template('palette.gpl', palette=palette, palette_name=palette_name)
 
             # import ipdb; ipdb.set_trace()
-            palette_file = StringIO()
-            palette_file.write(template)
+            palette_file = BytesIO()
+            palette_file.write(bytes(template, encoding="utf-8"))
             palette_file.seek(0)
 
             return send_file(palette_file, mimetype="application/octet-stream", as_attachment=True, attachment_filename="{palette_name}.gpl".format(palette_name=palette_name))
