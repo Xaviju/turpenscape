@@ -2,5 +2,6 @@ GIMP Palette
 Name: {{palette_name}}
 #
 
-{% for color in palette %}{{color[0]}} {{color[1]}} {{color[2]}} {{'#%02x%02x%02x' % color}}
+{% for color in palette %}
+{{color[0]}} {{color[1]}} {{color[2]}} {{'#%02x%02x%02x' % color}}
 {% endfor %}

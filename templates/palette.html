@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+    <h1>Turpenscape</h1>
+    {{palette_name}}
+    <img src="/static/uploads/{{filename}}" alt="">
+    <textarea name="name" rows="8" cols="80">
+        {{template}}
+    </textarea>
+    {% for color in palette %}
+        <div class="palette-color" style="background: {{'#%02x%02x%02x' % color}}"></div>
+        {{color[0]}} {{color[1]}} {{color[2]}} {{'#%02x%02x%02x' % color}}
+    {% endfor %}
+</body>
+
+</html>

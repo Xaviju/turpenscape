@@ -1,3 +1,31 @@
 h1 {
     font-size: 65px;
 }
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+.home-wrapper {
+    min-width: 100vw;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center center;
+}
+
+.palette-wrapper {
+    display: flex;
+}
+
+.single-palette {
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+}
+
+.palette-color {
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+}

@@ -8,12 +8,22 @@
 </head>
 
 <body>
-    <h1>Upload new File</h1>
-    <form method="post" enctype="multipart/form-data">
-        <input type="text" name="palette_name" required>
-        <input type="file" name="file" required>
-        <input type="submit" value="Upload">
-    </form>
+    <div class="home-wrapper" style="background-image: url('{{ url_for('static', filename='images/PH-385_clifford_still.jpg') }}');">
+        <h1>Turpenscape</h1>
+        <h2>PH-385</h2>
+        <h3>Clyfford Still</h3>
+        <p>Clyfford Still was an American painter, and one of the leading figures in the first generation of Abstract Expressionists, who developed a new, powerful approach to painting in the years immediately following World War II. Still has been credited with laying the groundwork for the movement, as his shift from representational to abstract painting occurred between 1938 and 1942, earlier than his colleagues like Jackson Pollock and Mark Rothko, who continued to paint in figurative-surrealist styles well into the 1940s.</p>
+        <div class="palette-wrapper">
+            <div class="single-palette" style="background-color: #ffffff"></div>
+            <div class="single-palette" style="background-color: #222222"></div>
+            <div class="single-palette" style="background-color: #444444"></div>
+            <div class="single-palette" style="background-color: #555555"></div>
+            <div class="single-palette" style="background-color: #666666"></div>
+            <div class="single-palette" style="background-color: #888888"></div>
+            <div class="single-palette" style="background-color: #000000"></div>
+        </div>
+
+    </div>
 </body>
 
 </html>
