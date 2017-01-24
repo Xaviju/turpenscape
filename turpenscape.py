@@ -1,49 +1,57 @@
-from flask import Flask, render_template, request, redirect, url_for, send_file
-from io import BytesIO
-from palette_gen import generate_palette
+from flask import Flask, render_template, request, redirect
+import base64
+from utils.palette_gen import generate_palette
+from utils.slug import slugify
 
 app = Flask(__name__)
-app.config['MAX_CONTENT_LENGTH'] = 3 * 1024 * 1024
+app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/', methods=['GET', 'POST'])
-def upload_file():
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/palette', methods=['GET', 'POST'])
+def palette():
     if request.method == 'POST':
         if 'file' not in request.files:
             flash('No file part')
             return redirect(request.url)
 
         file = request.files['file']
+        print(file)
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)
 
         if file and allowed_file(file.filename):
+
             palette = generate_palette(file)
-            palette_name = request.form['palette_name']
-            template = render_template('palette.gpl', palette=palette, palette_name=palette_name)
+            palette_name = slugify(request.form['palette_name'])
 
-            # import ipdb; ipdb.set_trace()
-            palette_file = BytesIO()
-            palette_file.write(bytes(template, encoding="utf-8"))
-            palette_file.seek(0)
+            template = render_template(
+                'palette.gpl',
+                palette=palette,
+                palette_name=palette_name
+            )
 
-            return send_file(palette_file, mimetype="application/octet-stream", as_attachment=True, attachment_filename="{palette_name}.gpl".format(palette_name=palette_name))
+            file.seek(0)
+            image = base64.b64encode(file.read())
+            image = image.decode("utf-8")
 
-            # return redirect(url_for('upload'))
-            # return redirect(url_for('uploaded_file', filename=filename))
-    return render_template('home.html')
+            return render_template(
+                'palette.html',
+                palette=palette,
+                palette_name=palette_name,
+                template=template,
+                image=image
+            )
 
-@app.route('/upload')
-def upload():
-    return render_template('upload.html')
-
-# url_for('static', filename='style.css')
-# url_for('static', filename='script.js')
+    return render_template('create.html')
 
 if __name__ == '__main__':
     app.config['DEBUG'] = True

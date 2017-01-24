@@ -4,3 +4,9 @@ Name: {{palette_name}}
 
 {% for color in palette %}{{color[0]}} {{color[1]}} {{color[2]}} {{'#%02x%02x%02x' % color}}
 {% endfor %}
+255 255 255     Grey1
+204 204 204     Grey2
+153 153 153     Grey3
+102 102 102     Grey4
+ 45  45  45     Grey5
+  0   0   0     Black

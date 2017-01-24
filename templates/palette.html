@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body style="background-image:url(data:image/jpg;base64,{{image}})">
+    <h1>Turpenscape</h1>
+
+
+
+    <textarea name="name" rows="8" cols="80">
+        {{template}}
+    </textarea>
+
+    {% for color in palette %}
+        <div class="palette-color" style="background: {{'#%02x%02x%02x' % color}}"></div>
+        {{color[0]}} {{color[1]}} {{color[2]}} {{'#%02x%02x%02x' % color}}
+    {% endfor %}
+
+    <a href="#" download="{{palette_name}}.gpl" id="get-palette">Get palette File!</a>
+
+    <script type="text/javascript">
+        var blob = new Blob([`{{template}}`], {type : 'application/octet-stream'});
+        var url = URL.createObjectURL(blob);
+        document.getElementById('get-palette').href = url;
+        // url will be something like: blob:d3958f5c-0777-0845-9dcf-2cb28783acaf
+        // now you can use the url in any context that regular URLs can be used in, for example img.src, etc.
+    </script>
+
+</body>
+
+</html>
