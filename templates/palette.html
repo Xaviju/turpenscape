@@ -1,36 +1,40 @@
-<!DOCTYPE html>
-<html>
+{% extends "layout.html" %} {% block body %}
+<div class="palette-result-wrapper" style="background: linear-gradient(135deg, #a40000 20%,#ccc747 50%, #8ae234 80%), url('data:image/jpg;base64,{{image}}') no-repeat center center / cover;">
 
-<head>
-    <meta charset="utf-8">
-    <title>Hello World</title>
-    <link rel="stylesheet" href="../static/style.css">
-</head>
-
-<body style="background-image:url(data:image/jpg;base64,{{image}})">
-    <h1>Turpenscape</h1>
-
-
-
-    <textarea name="name" rows="8" cols="80">
-        {{template}}
-    </textarea>
-
-    {% for color in palette %}
-        <div class="palette-color" style="background: {{'#%02x%02x%02x' % color}}"></div>
-        {{color[0]}} {{color[1]}} {{color[2]}} {{'#%02x%02x%02x' % color}}
-    {% endfor %}
+    <div class="palette-result-container">
+        <div class="palette-list">
+            {% for color in palette %}
+            <div class="palette-color" style="background: {{'#%02x%02x%02x' % color}}"></div>
+            {{color[0]}} {{color[1]}} {{color[2]}} {{'#%02x%02x%02x' % color}}
+            {% endfor %}
+        </div>
+    </div>
 
     <a href="#" download="{{palette_name}}.gpl" id="get-palette">Get palette File!</a>
 
-    <script type="text/javascript">
-        var blob = new Blob([`{{template}}`], {type : 'application/octet-stream'});
-        var url = URL.createObjectURL(blob);
-        document.getElementById('get-palette').href = url;
-        // url will be something like: blob:d3958f5c-0777-0845-9dcf-2cb28783acaf
-        // now you can use the url in any context that regular URLs can be used in, for example img.src, etc.
-    </script>
+    <ul class="links">
+        <li>
+            <a href="{{ url_for('home') }}" title="Generate new palette">
+                <span>Generate new palette</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ url_for('palettes') }}" title="Get palettes">
+                <span>Palettes from famous paintings</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/Xaviju/turpenscape" target="_blank">
+                <span>How to install palettes</span>
+            </a>
+        </li>
+    </ul>
 
-</body>
+</div>
 
-</html>
+<script type="text/javascript">
+    var blob = new Blob([`{{template}}`], {type : 'application/octet-stream'});
+    var url = URL.createObjectURL(blob);
+    document.getElementById('get-palette').href = url;
+</script>
+{% endblock %}

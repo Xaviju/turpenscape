@@ -11,12 +11,12 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/')
-def home():
-    return render_template('home.html')
+@app.route('/palettes')
+def palettes():
+    return render_template('palettes.html')
 
-@app.route('/palette', methods=['GET', 'POST'])
-def palette():
+@app.route('/', methods=['GET', 'POST'])
+def home():
     if request.method == 'POST':
         if 'file' not in request.files:
             flash('No file part')

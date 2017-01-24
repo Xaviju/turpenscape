@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title>Hello World</title>
-    <link rel="stylesheet" href="../static/style.css">
-</head>
-
-<body>
+{% extends "layout.html" %} {% block body %}
     <div class="home-wrapper" style="background-image: url('{{ url_for('static', filename='images/PH-385_clifford_still.jpg') }}');">
         <h1>Turpenscape</h1>
         <a href="{{ url_for('palette') }}" title="Create Palette">Create Palette</a>
@@ -25,6 +16,4 @@
         </div>
 
     </div>
-</body>
-
-</html>
+{% endblock %}

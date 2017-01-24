@@ -1,31 +1,146 @@
-h1 {
-    font-size: 65px;
+body {
+    font-family: 'Open Sans', sans-serif;
 }
 
-html, body {
-    padding: 0;
-    margin: 0;
-}
+/*****************************
+**********************  HOME
+******************************/
 
-.home-wrapper {
-    min-width: 100vw;
-    min-height: 100vh;
+.turpenscape-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #a40000 20%,#ccc747 50%, #8ae234 80%);
+    background: linear-gradient(135deg, #a40000 20%,#ccc747 50%, #8ae234 80%), url("images/turpenscape-bg.jpg");
+    opacity: .8;
+    background-blend-mode: multiply;
     background-size: cover;
-    background-position: center center;
-}
-
-.palette-wrapper {
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.single-palette {
-    width: 150px;
-    height: 150px;
-    border: 1px solid black;
+.turpenscape-wrapper > footer {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
 }
 
-.palette-color {
-    width: 150px;
-    height: 150px;
-    border: 1px solid black;
+.turpenscape-wrapper > footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.turpenscape-wrapper > footer a:hover {
+    text-decoration: underline;
+}
+
+.turpenscape-container {
+    display: flex;
+    color: white;
+    max-width: 840px;
+}
+
+.turpenscape-info {
+    flex-shrink: 1;
+    flex-grow: 1;
+    padding-right: 4rem;
+}
+
+.turpenscape-info > h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-family: 'Exo 2', sans-serif;
+    margin: 0;
+    font-weight: 400;
+}
+
+.turpenscape-info > h2 {
+    font-size: 2rem;
+    margin-top: 0;
+    font-weight: lighter;
+}
+
+.turpenscape-info > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.turpenscape-info > ul a {
+    color: #fff;
+    text-decoration: none;
+    padding: .5rem 0;
+    display: inline-block;
+}
+
+.turpenscape-info > ul a:hover {
+    text-decoration: underline;
+}
+
+/*****************************
+*************  HOME FORM
+******************************/
+
+.turpenscape-form {
+    flex-basis: 350px;
+    flex-shrink: 0;
+    background: rgba(250, 250, 250, .7);
+}
+
+.turpenscape-form > header {
+    background: #2e3436;
+    padding: 1rem;
+}
+
+.turpenscape-form > form {
+    padding: 1rem;
+    color: #2e3436;
+}
+
+.turpenscape-form > form fieldset {
+    border: 0;
+}
+
+.turpenscape-form > form label {
+    margin-bottom: .25rem;
+    display: block;
+}
+
+.turpenscape-form > form input {
+    width: 90%;
+    padding: .5rem;
+}
+
+.turpenscape-form > form input[type="submit"] {
+    width: 100%;
+    padding: .5rem;
+    background: #4e9a06;
+    border-radius: 5px;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+.turpenscape-form > form input[type="submit"]:hover {
+    background: #448605;
+    transition: background .2s;
+    cursor: pointer;
+}
+
+/*****************************
+*************  PALETTE RESULT
+******************************/
+
+.palette-result-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-blend-mode: multiply;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.palette-result-container {
+    color: white;
+    max-width: 840px;
 }
