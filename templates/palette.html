@@ -4,31 +4,37 @@
     <div class="palette-result-container">
         <div class="palette-list">
             {% for color in palette %}
-            <div class="palette-color" style="background: {{'#%02x%02x%02x' % color}}"></div>
-            {{color[0]}} {{color[1]}} {{color[2]}} {{'#%02x%02x%02x' % color}}
+            <div class="palete-color-container">
+                <div class="palette-color" style="background: {{'#%02x%02x%02x' % color}}"></div>
+                <span class="palette-hex">{{'#%02x%02x%02x' % color}}</span>
+            </div>
             {% endfor %}
+        </div>
+        <div class="palette_info">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic iure molestiae dolor nobis, natus saepe atque sequi, nostrum voluptatibus sed sunt labore id, dolorem odio non. Sapiente quidem unde sit?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic iure molestiae dolor nobis, natus saepe atque sequi, nostrum voluptatibus sed sunt labore id, dolorem odio non. Sapiente quidem unde sit?</p>
+            <ul class="links">
+                <li>
+                    <a href="{{ url_for('home') }}" title="Generate new palette">
+                        <span>Generate new palette</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('palettes') }}" title="Get palettes">
+                        <span>Palettes from famous paintings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/Xaviju/turpenscape" target="_blank">
+                        <span>How to install palettes</span>
+                    </a>
+                </li>
+            </ul>
+            <a href="#" download="{{palette_name}}.gpl" id="get-palette">Get palette File!</a>
         </div>
     </div>
 
-    <a href="#" download="{{palette_name}}.gpl" id="get-palette">Get palette File!</a>
 
-    <ul class="links">
-        <li>
-            <a href="{{ url_for('home') }}" title="Generate new palette">
-                <span>Generate new palette</span>
-            </a>
-        </li>
-        <li>
-            <a href="{{ url_for('palettes') }}" title="Get palettes">
-                <span>Palettes from famous paintings</span>
-            </a>
-        </li>
-        <li>
-            <a href="https://github.com/Xaviju/turpenscape" target="_blank">
-                <span>How to install palettes</span>
-            </a>
-        </li>
-    </ul>
 
 </div>
 
