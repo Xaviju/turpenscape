@@ -23,7 +23,6 @@ def home():
             return redirect(request.url)
 
         file = request.files['file']
-        print(file)
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)

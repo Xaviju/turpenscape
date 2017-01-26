@@ -1,37 +1,28 @@
 {% extends "layout.html" %} {% block body %}
+<a href="https://github.com/Xaviju/turpenscape"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
 <div class="palette-result-wrapper" style="background: linear-gradient(135deg, #a40000 20%,#ccc747 50%, #8ae234 80%), url('data:image/jpg;base64,{{image}}') no-repeat center center / cover;">
 
     <div class="palette-result-container">
         <div class="palette-list">
             {% for color in palette %}
-            <div class="palete-color-container">
+            <div class="palete-color-container" title="{{'#%02x%02x%02x' % color}}">
                 <div class="palette-color" style="background: {{'#%02x%02x%02x' % color}}"></div>
                 <span class="palette-hex">{{'#%02x%02x%02x' % color}}</span>
             </div>
             {% endfor %}
         </div>
-        <div class="palette_info">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic iure molestiae dolor nobis, natus saepe atque sequi, nostrum voluptatibus sed sunt labore id, dolorem odio non. Sapiente quidem unde sit?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic iure molestiae dolor nobis, natus saepe atque sequi, nostrum voluptatibus sed sunt labore id, dolorem odio non. Sapiente quidem unde sit?</p>
-            <ul class="links">
-                <li>
-                    <a href="{{ url_for('home') }}" title="Generate new palette">
-                        <span>Generate new palette</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url_for('palettes') }}" title="Get palettes">
-                        <span>Palettes from famous paintings</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/Xaviju/turpenscape" target="_blank">
-                        <span>How to install palettes</span>
-                    </a>
-                </li>
+        <div class="palette-info">
+            <h1 class="palette-info-logo">Turpenscape</h1>
+            <h2 class="palette-info-rtfm">How to install palettes</h2>
+            <p>This application allows you to generate palettes in GPL format that is used by Inkscape and GIMP.</p>
+            <p>Installing a palette its a very simple process that can be carried out using your File Manager:</p>
+            <ul>
+                <li><strong>For Linux and OS X</strong>: the local user directory is  <pre>~/.config/inkscape/palettes</pre></li>
+                <li><strong>For Windows</strong>: Copy the file under <pre>%PROGRAMFILES%\Inkscape\share\palettes</pre></li>
             </ul>
-            <a href="#" download="{{palette_name}}.gpl" id="get-palette">Get palette File!</a>
+            <a class="get-palette" href="#" download="{{palette_name}}.gpl" id="get-palette">Get palette File!</a>
         </div>
+        <a href="{{ url_for('home') }}" class="back">&#8678; Create new palette</a>
     </div>
 
 
