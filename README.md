@@ -10,7 +10,7 @@ Turpenscape can be very useful to create palettes from images. Designers, lookin
 
 Soon, we will add some example palettes from great artists!  
 
-## How do I install Inkscape Open Symbols?
+## How do I install a palette in Inkscape?
 
 Installing a palette its a very simple process that can be carried out using your File Manager
 
