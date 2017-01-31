@@ -3,19 +3,19 @@ import base64
 from utils.palette_gen import generate_palette
 from utils.slug import slugify
 
-app = Flask(__name__)
-app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024
+application = Flask(__name__)
+application.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/palettes')
+@application.route('/palettes')
 def palettes():
     return render_template('palettes.html')
 
-@app.route('/', methods=['GET', 'POST'])
+@application.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
         if 'file' not in request.files:
@@ -53,5 +53,4 @@ def home():
     return render_template('create.html')
 
 if __name__ == '__main__':
-    app.config['DEBUG'] = True
-    app.run()
+    application.run(host='0.0.0.0')
