@@ -27,17 +27,38 @@
             <header>
                 <span>Generate Palette</span>
             </header>
-            <form method="post" enctype="multipart/form-data">
-                <fieldset>
-                    <label for="palette_name">Palette Name</label>
-                    <input placeholder="MyAwesomePaletteName" id="palette_name" type="text" name="palette_name" required>
-                </fieldset>
-                <fieldset>
-                    <label for="palette_file">Image</label>
-                    <input id="palette_file" type="file" name="file" required>
-                </fieldset>
-                <input type="submit" value="Get Palette!">
-            </form>
+            <ul class="nav-generator">
+                <li>
+                    <a title="Generate Palette from image" href="#" class="generate-from-image selected">Upload Image</a>
+                </li>
+                <li>
+                    <a title="Generate Palette from URL" href="#" class="generate-from-url">From URL</a>
+                </li>
+            </ul>
+            <div class="palette-form-wrapper">
+                <form method="post" enctype="multipart/form-data" class="form-file active">
+                    <fieldset>
+                        <label for="palette_name">Palette Name</label>
+                        <input placeholder="MyAwesomePaletteName" id="palette_name" type="text" name="palette_name" required>
+                    </fieldset>
+                    <fieldset>
+                        <label for="palette_file">Image</label>
+                        <input id="palette_file" type="file" name="file" required>
+                    </fieldset>
+                    <input type="submit" value="Get Palette!">
+                </form>
+                <form method="post" class="form-url">
+                    <fieldset>
+                        <label for="palette_name">Palette Name</label>
+                        <input placeholder="MyAwesomePaletteName" id="palette_name" type="text" name="palette_name" required>
+                    </fieldset>
+                    <fieldset>
+                        <label for="palette_file">URL</label>
+                        <input id="palette_url" type="url" name="palette_url" required>
+                    </fieldset>
+                    <input type="submit" value="Get Palette!">
+                </form>
+            </div>
         </section>
     </div>
     <footer>

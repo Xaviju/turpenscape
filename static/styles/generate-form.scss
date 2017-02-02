@@ -1,0 +1,96 @@
+.turpenscape-form {
+    flex-basis: 350px;
+    flex-shrink: 0;
+    background: rgba(0, 0, 0, .9);
+    overflow: hidden;
+    position: relative;
+    header {
+        background: #2e3436;
+        padding: 1rem;
+    }
+    .nav-generator {
+        background: #424b4e;
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        flex: 1;
+        text-align: center;
+    }
+    a {
+        padding: 1rem;
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+        &.selected {
+            border-bottom: 2px solid rgb(210, 27, 69);
+        }
+    }
+    form {
+        padding: 1rem;
+        color: #ffffff;
+        &.active {
+            padding: 1rem;
+            color: #ffffff;
+        }
+        fieldset {
+            border: 0;
+        }
+        label {
+            margin-bottom: .25rem;
+            display: block;
+        }
+        input {
+            width: 92%;
+            padding: .5rem;
+            background: #222;
+            color: #fcfcfc;
+            border: 1px solid #000;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            &[type="submit"] {
+                width: 100%;
+                padding: .5rem;
+                background: #4e9a06;
+                border-radius: 5px;
+                color: #fff;
+                padding: 1rem 0;
+                border: 0;
+                &:hover {
+                    background: #448605;
+                    transition: background .2s;
+                    cursor: pointer;
+                }
+
+            }
+        }
+    }
+    .palette-form-wrapper {
+        display: flex;
+        width: 600px;
+        transition: all .3s  ease-in;
+        &.from-url {
+            transform: translateX(-100%);
+        }
+    }
+    // .form-file {
+    //     transform: translateX(100%);
+    //     transition: all .3s  ease-in;
+    //     &.active {
+    //         transform: translateX(0);
+    //         transition: all .3s  ease-in;
+    //     }
+    // }
+    // .form-url {
+    //     transform: translateX(-100%);
+    //     transition: all .3s  ease-in;
+    //     &.active {
+    //         transform: translateX(0);
+    //         transition: all .3s  ease-in;
+    //     }
+    // }
+}

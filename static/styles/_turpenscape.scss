@@ -1,0 +1,24 @@
+.turpenscape-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #a40000 20%, #ccc747 50%, #8ae234 80%);
+    background: linear-gradient(135deg, #a40000 20%, #ccc747 50%, #8ae234 80%), url("images/turpenscape-bg.jpg");
+    opacity: .8;
+    background-blend-mode: multiply;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    footer {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        a {
+            color: #fff;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
