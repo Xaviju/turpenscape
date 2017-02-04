@@ -22,5 +22,5 @@ Unidecode==0.4.20
 wcwidth==0.1.7
 Werkzeug==0.11.15
 
-selenium==3.0.2     # Firefox driver (geckodriver) is needed
+selenium==3.0.2     # Chrome driver (chromium or google-chrome) is needed
 pyvirtualdisplay==0.2.1     # Xvfb is needed

@@ -19,7 +19,7 @@ def create_hidden_display(width, height):
 
 @contextmanager
 def create_driver():
-    driver = webdriver.Firefox()
+    driver = webdriver.Chrome()
     driver.maximize_window()
     yield driver
     driver.quit()
